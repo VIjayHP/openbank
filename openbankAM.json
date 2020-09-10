@@ -2,7 +2,8 @@
     "openapi": "3.0.1",
     "info": {
         "title": "OpenAPI definition",
-        "version": "v0"
+        "version": "v1",
+        "description": "This is the OpenBank API Design specification"
     },
     "servers": [
         {
