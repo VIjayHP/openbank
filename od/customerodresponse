@@ -1,0 +1,55 @@
+---
+openapi: 3.0.1
+info:
+  title: customerodresult
+  version: 1.0.0
+  description: customerodresult
+servers:
+- url: /customerodresult/v1
+paths:
+  /customerodresult:
+    servers:
+    - url: https://apigw.icp-proxy.cib-1594987568-f72ef11f3ab089a8c677044eb28292cd-0000.sjc03.containers.appdomain.cloud/cib/sandbox/customerodresult/v1
+      description: ""
+    get: {}
+    post:
+      requestBody:
+        description: The request body for the operation
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ODResultRequest'
+            examples:
+              demo:
+                value:
+                  referenceNumber: cape town-33399c18-0934-11eb-9689-ac1ed2a90000
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ODResultReponse'
+              examples:
+                demo:
+                  value:
+                    decision: Declined
+                    status: "200"
+          description: The operation was successful.
+      operationId: postCustomerodresult
+      description: Insert a customerodresult
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    ODResultRequest:
+      type: object
+      properties:
+        referenceNumber:
+          type: string
+    ODResultReponse:
+      type: object
+      properties:
+        decision:
+          type: string
+        status:
+          type: string
