@@ -1,0 +1,78 @@
+---
+openapi: 3.0.1
+info:
+  title: curtomerodrequest
+  version: 1.0.0
+  description: curtomerodrequest
+servers:
+- url: /curtomerodrequest/v1
+paths:
+  /createODRequest:
+    get: {}
+    put: {}
+    post:
+      requestBody:
+        description: The request body for the operation
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ODRequest'
+            examples:
+              Demo:
+                value:
+                  customerId: some text
+                  customerName: some text
+                  odAmount: 50
+                  region: some text
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ODResponse'
+              examples:
+                odrequest:
+                  value:
+                    referenceNumber: india-d328a982-07c5-11eb-9689-ac1ed2a90000
+                    status: Declined
+          description: The operation was successful.
+      operationId: postCreateODRequest
+      description: Insert a createODRequest
+      x-codegen-request-body-name: body
+    parameters:
+    - name: OverdraftRequest
+      description: Populate header
+      schema: {}
+      in: header
+      required: false
+components:
+  schemas:
+    ODRequest:
+      required:
+      - customerId
+      type: object
+      properties:
+        customerId:
+          type: string
+        customerName:
+          type: string
+        odAmount:
+          type: integer
+        region:
+          type: string
+      example:
+        customerId: "1"
+        customerName: apicurio_demo
+        odAmount: 1300
+        region: india
+    ODResponse:
+      type: object
+      properties:
+        referenceNumber:
+          type: string
+        status:
+          type: string
+      example:
+        referenceNumber: india-d328a982-07c5-11eb-9689-ac1ed2a90000
+        status: Declined
