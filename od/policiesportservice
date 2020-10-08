@@ -1,0 +1,674 @@
+---
+openapi: 3.0.1
+info:
+  title: PoliciesPortService
+  version: "1.0"
+  contact: {}
+servers:
+- url: https://bank-sim-3scale-apicast-staging.3scale-amp.cib-1594987568-f72ef11f3ab089a8c677044eb28292cd-0000.sjc03.containers.appdomain.cloud:443/ws/
+paths:
+  /:
+    post:
+      requestBody:
+        content:
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/FindAccountRequest1'
+            examples:
+              requestbodyexample:
+                value: "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\
+                  \n\t\t\t\t  xmlns:gs=\"http://spring.io/guides/createaccount-web-service\"\
+                  >\n   <soapenv:Header/>\n   <soapenv:Body>\n      <gs:FindAccountRequest>\n\
+                  \         <gs:PartyIdent>067267282604</gs:PartyIdent>\n      </gs:FindAccountRequest>\n\
+                  \   </soapenv:Body>\n</soapenv:Envelope>"
+        required: true
+      tags:
+      - PoliciesPortSoap11
+      parameters:
+      - name: user_key
+        schema:
+          type: string
+          x-data-threescale-name: user_keys
+        in: query
+        required: true
+        x-data-threescale-name: user_keys
+      responses:
+        "200":
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/FindAccountResponse1'
+              examples:
+                getbankAccountExamples:
+                  value: |-
+                    <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+                        <SOAP-ENV:Header/>
+                        <SOAP-ENV:Body>
+                            <ns2:FindAccountResponse xmlns:ns2="http://spring.io/guides/createaccount-web-service">
+                                <ns2:AccountLists>
+                                    <ns2:AccNum>006953986434</ns2:AccNum>
+                                    <ns2:AccStatus>Active</ns2:AccStatus>
+                                    <ns2:Title>Roger</ns2:Title>
+                                </ns2:AccountLists>
+                                <ns2:AccountLists>
+                                    <ns2:AccNum>796502881246</ns2:AccNum>
+                                    <ns2:AccStatus>Active</ns2:AccStatus>
+                                    <ns2:Title>ISLAM HASSAN3</ns2:Title>
+                                </ns2:AccountLists>
+                                <ns2:AccountLists>
+                                    <ns2:AccNum>721275255059</ns2:AccNum>
+                                    <ns2:AccStatus>Active</ns2:AccStatus>
+                                    <ns2:Title>Roger</ns2:Title>
+                                </ns2:AccountLists>
+                                <ns2:AccountLists>
+                                    <ns2:AccNum>571755769003</ns2:AccNum>
+                                    <ns2:AccStatus>Active</ns2:AccStatus>
+                                    <ns2:Title>John</ns2:Title>
+                                </ns2:AccountLists>
+                                <ns2:AccountLists>
+                                    <ns2:AccNum>311213010442</ns2:AccNum>
+                                    <ns2:AccStatus>Active</ns2:AccStatus>
+                                    <ns2:Title>Youssef Negm</ns2:Title>
+                                </ns2:AccountLists>
+                                <ns2:AccountLists>
+                                    <ns2:AccNum>731176183375</ns2:AccNum>
+                                    <ns2:AccStatus>Active</ns2:AccStatus>
+                                    <ns2:Title>Vinay Kumar </ns2:Title>
+                                </ns2:AccountLists>
+                                <ns2:CreditCardsList>
+                                    <ns2:CardIdent>5229421106467924</ns2:CardIdent>
+                                    <ns2:ExpDt>08-2025</ns2:ExpDt>
+                                    <ns2:CardSatus>12</ns2:CardSatus>
+                                    <ns2:CardStatusDesc>12</ns2:CardStatusDesc>
+                                    <ns2:CardType>Credit</ns2:CardType>
+                                    <ns2:CredAcct>006953986434</ns2:CredAcct>
+                                    <ns2:CardBal>0.0</ns2:CardBal>
+                                    <ns2:CurrentBalance>5000</ns2:CurrentBalance>
+                                </ns2:CreditCardsList>
+                                <ns2:CreditCardsList>
+                                    <ns2:CardIdent>5229053552973913</ns2:CardIdent>
+                                    <ns2:ExpDt>08-2025</ns2:ExpDt>
+                                    <ns2:CardSatus>12</ns2:CardSatus>
+                                    <ns2:CardStatusDesc>12</ns2:CardStatusDesc>
+                                    <ns2:CardType>Credit</ns2:CardType>
+                                    <ns2:CredAcct>796502881246</ns2:CredAcct>
+                                    <ns2:CardBal>0.0</ns2:CardBal>
+                                    <ns2:CurrentBalance>5000</ns2:CurrentBalance>
+                                </ns2:CreditCardsList>
+                                <ns2:CreditCardsList>
+                                    <ns2:CardIdent>5229541872864394</ns2:CardIdent>
+                                    <ns2:ExpDt>08-2025</ns2:ExpDt>
+                                    <ns2:CardSatus>12</ns2:CardSatus>
+                                    <ns2:CardStatusDesc>12</ns2:CardStatusDesc>
+                                    <ns2:CardType>Credit</ns2:CardType>
+                                    <ns2:CredAcct>571755769003</ns2:CredAcct>
+                                    <ns2:CardBal>0.0</ns2:CardBal>
+                                    <ns2:CurrentBalance>5000</ns2:CurrentBalance>
+                                </ns2:CreditCardsList>
+                                <ns2:CreditCardsList>
+                                    <ns2:CardIdent>5229274024004246</ns2:CardIdent>
+                                    <ns2:ExpDt>08-2025</ns2:ExpDt>
+                                    <ns2:CardSatus>12</ns2:CardSatus>
+                                    <ns2:CardStatusDesc>12</ns2:CardStatusDesc>
+                                    <ns2:CardType>credit</ns2:CardType>
+                                    <ns2:CredAcct>311213010442</ns2:CredAcct>
+                                    <ns2:CardBal>0.0</ns2:CardBal>
+                                    <ns2:CurrentBalance>5000</ns2:CurrentBalance>
+                                </ns2:CreditCardsList>
+                                <ns2:CreditCardsList>
+                                    <ns2:CardIdent>5229999618789534</ns2:CardIdent>
+                                    <ns2:ExpDt>08-2025</ns2:ExpDt>
+                                    <ns2:CardSatus>12</ns2:CardSatus>
+                                    <ns2:CardStatusDesc>12</ns2:CardStatusDesc>
+                                    <ns2:CardType>credit</ns2:CardType>
+                                    <ns2:CredAcct>731176183375</ns2:CredAcct>
+                                    <ns2:CardBal>0.0</ns2:CardBal>
+                                    <ns2:CurrentBalance>5000</ns2:CurrentBalance>
+                                </ns2:CreditCardsList>
+                                <ns2:DebitCardsList/>
+                            </ns2:FindAccountResponse>
+                        </SOAP-ENV:Body>
+                    </SOAP-ENV:Envelope>
+          description: ""
+      deprecated: false
+      operationId: FindAccount
+      summary: FindAccount
+      x-codegen-request-body-name: Body
+components:
+  schemas:
+    CreateCurrentAccountRequest:
+      title: CreateCurrentAccountRequest
+      description: ""
+      required:
+      - AcctInfo
+      - InitiateCard
+      type: object
+      properties:
+        AcctInfo:
+          $ref: '#/components/schemas/AcctInfo'
+        InitiateCard:
+          $ref: '#/components/schemas/InitiateCard'
+      xml:
+        name: CreateCurrentAccountRequest
+        namespace: http://spring.io/guides/createaccount-web-service
+        prefix: sch
+        attribute: false
+        wrapped: false
+    AcctInfo:
+      title: AcctInfo
+      description: ""
+      required:
+      - BranchId
+      - CurCode
+      - PartyIdent
+      - ProductIdent
+      type: object
+      properties:
+        PartyIdent:
+          type: string
+          xml:
+            name: PartyIdent
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        CurCode:
+          type: string
+          xml:
+            name: CurCode
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        BranchId:
+          type: string
+          xml:
+            name: BranchId
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        ProductIdent:
+          type: string
+          xml:
+            name: ProductIdent
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+      xml:
+        name: AcctInfo
+        namespace: http://spring.io/guides/createaccount-web-service
+        prefix: sch
+        attribute: false
+        wrapped: false
+    successinfo:
+      title: successinfo
+      description: ""
+      required:
+      - CardRef
+      - acctNum
+      type: object
+      properties:
+        acctNum:
+          type: string
+          xml:
+            name: acctNum
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        CardRef:
+          type: string
+          xml:
+            name: CardRef
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+      xml:
+        name: successinfo
+        namespace: http://spring.io/guides/createaccount-web-service
+        prefix: sch
+        attribute: false
+        wrapped: false
+    InitiateCard:
+      title: InitiateCard
+      description: ""
+      required:
+      - CardType
+      - EmbossName
+      - OwnerParty
+      type: object
+      properties:
+        EmbossName:
+          type: string
+          xml:
+            name: EmbossName
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        OwnerParty:
+          type: string
+          xml:
+            name: OwnerParty
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        CardType:
+          type: string
+          xml:
+            name: CardType
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+      xml:
+        name: InitiateCard
+        namespace: http://spring.io/guides/createaccount-web-service
+        prefix: sch
+        attribute: false
+        wrapped: false
+    FindAccountRequest:
+      title: FindAccountRequest
+      description: ""
+      required:
+      - PartyIdent
+      type: object
+      properties:
+        PartyIdent:
+          type: string
+          xml:
+            name: PartyIdent
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+      xml:
+        name: FindAccountRequest
+        namespace: http://spring.io/guides/createaccount-web-service
+        prefix: sch
+        attribute: false
+        wrapped: false
+    FindAccountResponse:
+      title: FindAccountResponse
+      description: ""
+      required:
+      - AccountLists
+      - CreditCardsList
+      - DebitCardsList
+      - DepositList
+      - FundsList
+      - LoanList
+      type: object
+      properties:
+        AccountLists:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountList'
+          xml:
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        DepositList:
+          type: array
+          items:
+            $ref: '#/components/schemas/DepositList'
+          xml:
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        CreditCardsList:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreditCardsList'
+          xml:
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        DebitCardsList:
+          type: array
+          items:
+            $ref: '#/components/schemas/DebitCardsList'
+          xml:
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        LoanList:
+          type: array
+          items:
+            $ref: '#/components/schemas/LoanList'
+          xml:
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        FundsList:
+          type: array
+          items:
+            $ref: '#/components/schemas/FundsList'
+          xml:
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+      xml:
+        name: FindAccountResponse
+        namespace: http://spring.io/guides/createaccount-web-service
+        prefix: sch
+        attribute: false
+        wrapped: false
+    AccountList:
+      title: AccountList
+      description: ""
+      required:
+      - AacctCat
+      - AccBal
+      - AccNum
+      - AccStatus
+      - CurCode
+      - Title
+      type: object
+      properties:
+        AccNum:
+          type: string
+          xml:
+            name: AccNum
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        AccStatus:
+          type: string
+          xml:
+            name: AccStatus
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        Title:
+          type: string
+          xml:
+            name: Title
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        AacctCat:
+          type: string
+          xml:
+            name: AacctCat
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        CurCode:
+          type: string
+          xml:
+            name: CurCode
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        AccBal:
+          type: string
+          xml:
+            name: AccBal
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+      xml:
+        name: AccountList
+        namespace: http://spring.io/guides/createaccount-web-service
+        prefix: sch
+        attribute: false
+        wrapped: false
+    CurCode:
+      title: CurCode
+      description: ""
+      required:
+      - CurCodeType
+      - CurCodeValue
+      type: object
+      properties:
+        CurCodeType:
+          type: string
+          xml:
+            name: CurCodeType
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        CurCodeValue:
+          type: string
+          xml:
+            name: CurCodeValue
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+      xml:
+        name: CurCode
+        namespace: http://spring.io/guides/createaccount-web-service
+        prefix: sch
+        attribute: false
+        wrapped: false
+    AccBal:
+      title: AccBal
+      description: ""
+      required:
+      - BalType
+      - CurrAmt
+      type: object
+      properties:
+        BalType:
+          type: string
+          xml:
+            name: BalType
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        CurrAmt:
+          type: string
+          xml:
+            name: CurrAmt
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+      xml:
+        name: AccBal
+        namespace: http://spring.io/guides/createaccount-web-service
+        prefix: sch
+        attribute: false
+        wrapped: false
+    DepositList:
+      title: DepositList
+      description: ""
+      type: object
+      xml:
+        name: DepositList
+        namespace: http://spring.io/guides/createaccount-web-service
+        prefix: sch
+        attribute: false
+        wrapped: false
+    CreditCardsList:
+      title: CreditCardsList
+      description: ""
+      required:
+      - CardBal
+      - CardIdent
+      - CardSatus
+      - CardStatusDesc
+      - CardType
+      - CredAcct
+      - CurrentBalance
+      - ExpDt
+      - TotalLimit
+      type: object
+      properties:
+        CardIdent:
+          type: string
+          xml:
+            name: CardIdent
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        ExpDt:
+          type: string
+          xml:
+            name: ExpDt
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        CardSatus:
+          type: string
+          xml:
+            name: CardSatus
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        CardStatusDesc:
+          type: string
+          xml:
+            name: CardStatusDesc
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        TotalLimit:
+          type: string
+          xml:
+            name: TotalLimit
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        CardType:
+          type: string
+          xml:
+            name: CardType
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        CredAcct:
+          type: string
+          xml:
+            name: CredAcct
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        CardBal:
+          type: string
+          xml:
+            name: CardBal
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+        CurrentBalance:
+          type: string
+          xml:
+            name: CurrentBalance
+            namespace: http://spring.io/guides/createaccount-web-service
+            prefix: sch
+            attribute: false
+            wrapped: false
+      xml:
+        name: CreditCardsList
+        namespace: http://spring.io/guides/createaccount-web-service
+        prefix: sch
+        attribute: false
+        wrapped: false
+    DebitCardsList:
+      title: DebitCardsList
+      description: ""
+      type: object
+      xml:
+        name: DebitCardsList
+        namespace: http://spring.io/guides/createaccount-web-service
+        prefix: sch
+        attribute: false
+        wrapped: false
+    LoanList:
+      title: LoanList
+      description: ""
+      type: object
+      xml:
+        name: LoanList
+        namespace: http://spring.io/guides/createaccount-web-service
+        prefix: sch
+        attribute: false
+        wrapped: false
+    FundsList:
+      title: FundsList
+      description: ""
+      type: object
+      xml:
+        name: FundsList
+        namespace: http://spring.io/guides/createaccount-web-service
+        prefix: sch
+        attribute: false
+        wrapped: false
+    CreateCurrentAccountRequest1:
+      title: CreateCurrentAccountRequest1
+      required:
+      - CreateCurrentAccountRequest
+      type: object
+      properties:
+        CreateCurrentAccountRequest:
+          $ref: '#/components/schemas/CreateCurrentAccountRequest1'
+    CreateCurrentAccountResponse:
+      title: CreateCurrentAccountResponse
+      required:
+      - CreateCurrentAccountResponse
+      type: object
+      properties:
+        CreateCurrentAccountResponse:
+          type: string
+          xml:
+            name: CreateCurrentAccountResponse
+            attribute: false
+            wrapped: false
+      xml:
+        name: CreateCurrentAccountResponse
+        attribute: false
+        wrapped: false
+    FindAccountRequest1:
+      title: FindAccountRequest1
+      required:
+      - FindAccountRequest
+      type: object
+      properties:
+        FindAccountRequest:
+          $ref: '#/components/schemas/FindAccountRequest1'
+    FindAccountResponse1:
+      title: FindAccountResponse1
+      required:
+      - FindAccountResponse
+      type: object
+      properties:
+        FindAccountResponse:
+          $ref: '#/components/schemas/FindAccountResponse1'
+      xml:
+        name: FindAccountResponse
+        attribute: false
+        wrapped: false
+tags:
+- name: PoliciesPortSoap11
+  description: ""
+schemes:
+- http
